@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ionic-app-31715": {
+      "hosting": {
+        "app": [
+          "ionic-app-31715"
+        ]
+      }
+    }
+  }
+}

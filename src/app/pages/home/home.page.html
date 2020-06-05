@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Peso attuale</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <!-- <li *ngFor="let info of infos">{{info.data | date: "dd/MM/yy"}} - {{info.ora | date: "HH:mm"}} - {{info.kg}}</li> -->
+      <canvas 
+      baseChart
+      style="display: block"
+      [datasets]="chartData"
+      [labels]="chartLabels"
+      [chartType]="chartType"
+      [colors]="chartsColors"
+      [options]="chartOptions"
+      [legend]="showLegend">
+      </canvas>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="dark" (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

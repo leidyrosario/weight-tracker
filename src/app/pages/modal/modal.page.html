@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">Annulla</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="add(f)">Aggiungi</ion-button>
+    </ion-buttons>
+    <ion-title class="title">Peso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm">
+  <ion-item>
+    <ion-label>Data</ion-label>
+    <ion-datetime 
+    display-format="DD MMMM YYYY"
+    [ngModel]="dataAttuale.toISOString()"
+    (ion-change)="cambioData($event)"
+    name="data"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Kg</ion-label>
+    <ion-input
+    [ngModel]
+    name="kg"
+    class="ion-text-right"></ion-input>
+  </ion-item>
+</form>
+</ion-content>
+
+
+<li *ngFor="let info of infos">
+  {{info.data}} - {{info.kg}}
+</li>
