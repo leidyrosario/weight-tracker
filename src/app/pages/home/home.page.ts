@@ -46,7 +46,7 @@ export class HomePage implements OnInit {
     plugins: {
       zoom: {
         pan: {
-          enabled: false,
+          enabled: true,
           mode: 'xy'
         },
         zoom: {
@@ -67,7 +67,7 @@ export class HomePage implements OnInit {
     }
   ];
   chartType = 'line';
-  showLegend = false;
+  showLegend = true;
 
 
   constructor(private modalController: ModalController,
