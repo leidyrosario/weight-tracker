@@ -19,15 +19,9 @@ export interface Peso {
 export class PesoService {
   dataAttuale: Date = new Date();
   infos: Info[] = [];
-  peso$: Observable<Peso[]>;
-  peso: Peso[];
-  sub: any;
 
   constructor(private afs: AngularFirestore) {
-    this.peso$ = this.afs.collection<Peso>('peso').valueChanges();
 
-    this.sub = this.afs.collection<Peso>('peso').valueChanges()
-    .subscribe(res => this.peso = res);
    }
 
    addPeso(form: NgForm) {

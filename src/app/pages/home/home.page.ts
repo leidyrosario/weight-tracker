@@ -1,10 +1,12 @@
+import { LineChartService } from './../../services/line-chart.service';
 import { PesoService } from './../../services/peso.service';
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
 import { ModalPage } from '../modal/modal.page';
 import { ModalController, NavParams, IonFab } from '@ionic/angular';
 import { ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import * as zoomPlugin from 'chartjs-plugin-zoom';
+import { Subscription } from 'rxjs';
 
 interface Info {
   data: any;
@@ -16,7 +18,7 @@ interface Info {
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, OnDestroy {
   dataAttuale: Date = new Date();
   infos: Info[] = [];
   chartData: ChartDataSets[] = [{ data: [], label: 'Peso'}];
@@ -69,6 +71,7 @@ export class HomePage implements OnInit {
   chartType = 'line';
   showLegend = true;
 
+  sub: Subscription;
 
   constructor(private modalController: ModalController,
               private pesoService: PesoService) {}
@@ -82,15 +85,15 @@ export class HomePage implements OnInit {
     modal.present();
   }
 
-
-  ngOnInit() {
-    this.pesoService.loadPeso().subscribe(data => {
+  drawGraf(): void {
+    this.sub = this.pesoService.loadPeso().subscribe(data => {
       this.infos = data.map(e => {
         return {
           data: e.payload.doc.data().data,
           kg: e.payload.doc.data().kg
         };
       });
+      this.infos.sort((a, b) => new Date(a.data) > new Date(b.data) ? 1 : -1);
       this.chartLabels = [];
       for (const info of this.infos) {
         this.chartLabels.push(info.data);
@@ -98,6 +101,15 @@ export class HomePage implements OnInit {
       }
       console.log(this.infos);
     });
+  }
+
+
+  ngOnInit() {
+    this.drawGraf();
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 }
