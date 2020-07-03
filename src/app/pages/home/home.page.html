@@ -15,7 +15,7 @@
     </ion-card-header>
     <ion-card-content>
       <!-- <li *ngFor="let info of infos">{{info.data | date: "dd/MM/yy"}} - {{info.ora | date: "HH:mm"}} - {{info.kg}}</li> -->
-      <canvas 
+      <canvas *ngIf="cfg.activeGraf === 'line' || cfg.activeGraf === 'all'"
       baseChart
       style="display: block"
       [datasets]="lcs.chartData"
@@ -24,6 +24,16 @@
       [colors]="lcs.chartsColors"
       [options]="lcs.chartOptions"
       [legend]="lcs.showLegend">
+      </canvas>
+      <canvas *ngIf="cfg.activeGraf === 'pie' || cfg.activeGraf === 'all'"
+      baseChart 
+      style="display: block"
+      [datasets]="pcs.pieChartData"
+      [labels]="pcs.pieChartLabels"
+      [chartType]="pcs.pieChartType"
+      [colors]="pcs.pieChartsColors"
+      [options]="pcs.pieChartOptions"
+      [legend]="pcs.pieShowLegend">
       </canvas>
     </ion-card-content>
   </ion-card>

@@ -16,6 +16,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import 'chartjs-plugin-zoom';
+import 'chartjs-plugin-datalabels';
 
 @NgModule({
   declarations: [AppComponent],

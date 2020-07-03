@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
-import * as zoomPlugin from 'chartjs-plugin-zoom';
+import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import * as zoomPlugin from 'chartjs-plugin-zoom';
 export class PieChartService {
   pieChartData: ChartDataSets[] = [{ data: [], label: 'Peso'}];
   pieChartLabels: Label[];
-  pieChartPlugins = [zoomPlugin];
+  pieChartPlugins = [pluginDataLabels];
 
   // Options
   pieChartOptions = {
@@ -18,16 +18,12 @@ export class PieChartService {
       position: 'top',
     },
     plugins: {
-      zoom: {
-        pan: {
-          enabled: true,
-          mode: 'xy'
-        },
-        zoom: {
-          enabled: false,
-          mode: 'xy'
-    }
-  }
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        }
+      }
   }
   };
 
@@ -37,8 +33,8 @@ export class PieChartService {
     },
   ];
 
-  chartType = 'pie';
-  showLegend = true;
+  pieChartType = 'pie';
+  pieShowLegend = false;
 
   constructor() { }
 }

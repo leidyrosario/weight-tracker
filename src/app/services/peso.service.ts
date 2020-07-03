@@ -36,6 +36,10 @@ export class PesoService {
     return this.afs.collection<Peso>('peso').snapshotChanges();
  }
 
+  loadPiePeso() {
+    return this.afs.collection<Peso>('peso').get();
+ }
+
   updatePeso() {
 
   }

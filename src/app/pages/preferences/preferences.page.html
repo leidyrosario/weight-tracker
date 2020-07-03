@@ -10,13 +10,16 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Type of Chart</ion-label>
-    <ion-select (ionChange)="typeChanged($event)">
-      <ion-select-option>Pie Chart</ion-select-option>
-      <ion-select-option>Doughnut Chart</ion-select-option>
+    <ion-select [(ngModel)]="cfg.activeGraf">
+      <ion-select-option value="pie">Pie Chart</ion-select-option>
+      <ion-select-option value="line">Line Chart</ion-select-option>
+      <ion-select-option value="all">Both Charts</ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-label>Show legend</ion-label>
-    <ion-toggle [(ngModel)]="showLegend"></ion-toggle>
+    <ion-toggle [(ngModel)]="lcs.showLegend"></ion-toggle>
   </ion-item>
+
+  <ion-button expand="block" (click)="gotoHome()">Apply</ion-button>
 </ion-content>
