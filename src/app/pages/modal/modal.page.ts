@@ -2,6 +2,7 @@ import { PesoService } from './../../services/peso.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
+import { ConfigService } from 'src/app/services/config.service';
 
 interface Info {
   data: any;
@@ -20,9 +21,11 @@ export class ModalPage implements OnInit {
 
 
 
+
   constructor(
     private modalController: ModalController,
-    private pesoService: PesoService) {}
+    private pesoService: PesoService,
+    public cfg: ConfigService) {}
 
   ngOnInit() {
     this.pesoService.loadPeso().subscribe(data => {
@@ -32,7 +35,6 @@ export class ModalPage implements OnInit {
           kg: e.payload.doc.data().kg
         };
       });
-      console.log(this.infos);
     });
   }
 
@@ -44,11 +46,13 @@ export class ModalPage implements OnInit {
  }
 
   cambioData(event) {
-    console.log ('ionChange', event);
   }
 
   cambioOra(event) {
-    console.log ('ionChange', event);
+  }
+
+  parametre() {
+
   }
 
   closeModal() {

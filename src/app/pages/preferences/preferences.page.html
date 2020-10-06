@@ -20,6 +20,19 @@
     <ion-label>Show legend</ion-label>
     <ion-toggle [(ngModel)]="lcs.showLegend"></ion-toggle>
   </ion-item>
+  <ion-item>
+    <ion-label>Add Parameters</ion-label>
+    <ion-select multiple="true" [(ngModel)]="cfg.addParam">
+    <ion-select-option value="massa grassa">Massa Grassa</ion-select-option>
+    <ion-select-option value="massa muscolare">Massa Muscolare</ion-select-option>
+    <ion-select-option value="massa ossea">Massa Ossea</ion-select-option>
+    <ion-select-option value="massa idrica">Massa Idrica</ion-select-option>
+  </ion-select>
+  </ion-item>
 
-  <ion-button expand="block" (click)="gotoHome()">Apply</ion-button>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" (click)="gotoHome()">Apply</ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,3 +1,4 @@
+import { PesoService } from './peso.service';
 import { Injectable } from '@angular/core';
 import { ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
@@ -36,5 +37,7 @@ export class PieChartService {
   pieChartType = 'pie';
   pieShowLegend = false;
 
-  constructor() { }
+  constructor(private pesoService: PesoService) {
+    this.pesoService.loadPiePeso();
+   }
 }

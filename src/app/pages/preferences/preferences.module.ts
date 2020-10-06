@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { PreferencesPageRoutingModule } from './preferences-routing.module';
 
 import { PreferencesPage } from './preferences.page';
+import { IonicSelectableModule } from 'ionic-selectable';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PreferencesPageRoutingModule
+    PreferencesPageRoutingModule,
+    IonicSelectableModule
   ],
   declarations: [PreferencesPage]
 })

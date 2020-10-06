@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./preferences.page.scss'],
 })
 export class PreferencesPage  {
+  params: ['massa grassa', 'massa muscolare', 'massa ossea', 'massa idrica'];
 
   constructor(public cfg: ConfigService,
               public lcs: LineChartService,

@@ -8,10 +8,9 @@
 </ion-header>
 
 <ion-content padding>
-
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Peso attuale</ion-card-title>
+      <ion-card-title>Peso Attuale</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <!-- <li *ngFor="let info of infos">{{info.data | date: "dd/MM/yy"}} - {{info.ora | date: "HH:mm"}} - {{info.kg}}</li> -->
@@ -25,6 +24,13 @@
       [options]="lcs.chartOptions"
       [legend]="lcs.showLegend">
       </canvas>
+    </ion-card-content>
+  </ion-card>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Peso e Altri Parametri</ion-card-title>
+      </ion-card-header>
+    <ion-card-content>
       <canvas *ngIf="cfg.activeGraf === 'pie' || cfg.activeGraf === 'all'"
       baseChart 
       style="display: block"

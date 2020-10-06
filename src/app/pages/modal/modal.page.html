@@ -27,10 +27,30 @@
     name="kg"
     class="ion-text-right"></ion-input>
   </ion-item>
+
+  <div *ngIf="cfg.addParam">
+  <ion-item>
+    <ion-label>Massa Grassa</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Massa Muscolare</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Massa Ossea</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Massa Idrica</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+</div>
+
 </form>
 </ion-content>
 
 
-<li *ngFor="let info of infos">
+<!-- <li *ngFor="let info of infos">
   {{info.data}} - {{info.kg}}
-</li>
+</li> -->
