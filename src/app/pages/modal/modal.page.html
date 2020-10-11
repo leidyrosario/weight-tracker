@@ -28,24 +28,35 @@
     class="ion-text-right"></ion-input>
   </ion-item>
 
-  <div *ngIf="cfg.addParam">
-  <ion-item>
+  
+  <ion-item *ngIf="cfg.addParam">
     <ion-label>Massa Grassa</ion-label>
-    <ion-input></ion-input>
+    <ion-input
+    [ngModel]
+    name="massaGrassa"
+    class="ion-text-right"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="cfg.addParam">
     <ion-label>Massa Muscolare</ion-label>
-    <ion-input></ion-input>
+    <ion-input
+    [ngModel]
+    name="massaMuscolare"
+    class="ion-text-right"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="cfg.addParam">
     <ion-label>Massa Ossea</ion-label>
-    <ion-input></ion-input>
+    <ion-input
+    [ngModel]
+    name="massaOssea"
+    class="ion-text-right"></ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="cfg.addParam">
     <ion-label>Massa Idrica</ion-label>
-    <ion-input></ion-input>
+    <ion-input
+    [ngModel]
+    name="massaIdrica"
+    class="ion-text-right"></ion-input>
   </ion-item>
-</div>
 
 </form>
 </ion-content>

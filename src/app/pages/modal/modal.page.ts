@@ -7,6 +7,10 @@ import { ConfigService } from 'src/app/services/config.service';
 interface Info {
   data: any;
   kg: number;
+  massaGrassa?: number;
+  massaMuscolare?: number;
+  massaOssea ?: number;
+  massaIdrica?: number;
 }
 
 
@@ -32,7 +36,11 @@ export class ModalPage implements OnInit {
       this.infos = data.map(e => {
         return {
           data: e.payload.doc.data().data,
-          kg: e.payload.doc.data().kg
+          kg: e.payload.doc.data().kg,
+          massaGrassa: e.payload.doc.data().massaGrassa,
+          massaMuscolare: e.payload.doc.data().massaMuscolare,
+          massaOssea: e.payload.doc.data().massaOssea,
+          massaIdrica: e.payload.doc.data().massaIdrica
         };
       });
     });

@@ -1,0 +1,52 @@
+BUILD PROD
+ng build --prod --build-optimizer --output-hashing=all
+
+X Clonare un progetto GIT in una nuova cartella
+git clone URL_DEL_PROGETTO_COPIATO_DA_GIT
+
+X Mandare su GIT tutte le tue modifiche
+git add .
+git commit -m "messaggio del commit"
+git push -u origin master
+
+X Prendere la versione aggiornata da GIT
+git pull
+
+X Ripristinare la tua versione "spaccata" prendendo quella presente su GIT funzionante
+git reset --hard
+git pull
+
+PER UPPARE LA DIST SU GITHUB
+sh commitDistLeidy.sh
+
+
+
+FTP:
+ftp.leidyrosario.it
+username: admin_leidy
+password: %LeidyRosarioFtp%
+
+Creazione di componente post
+ng g c blogposts/posts/{{NOME-DEL-TUO-ARTICOLO}}
+es: ng g c blogposts/posts/post-cominciamo-con-angular
+
+
+Syntax Highlights
+ATTENZIONE AGLI APICI
+
+<ngx-prism
+  [language]="'html'"
+  [code]="'CODICE \'HTML\''">
+</ngx-prism>
+
+
+const NOMEVAR = `<div class="">TEST</div>`
+
+
+<ngx-prism
+  [language]="'html'"
+  [code]="NOMEVAR">
+</ngx-prism>
+
+
+https://www.npmjs.com/package/@ngx-prism/core -->

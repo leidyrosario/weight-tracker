@@ -9,7 +9,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 })
 export class PieChartService {
   pieChartData: ChartDataSets[] = [{ data: [], label: 'Peso'}];
-  pieChartLabels: Label[];
+  pieChartLabels: Label[] = [['kg'], ['Massa', 'Grassa'], ['Massa', 'Muscolare'], ['Massa', 'Ossea'], ['Massa', 'Idrica']];
   pieChartPlugins = [pluginDataLabels];
 
   // Options
@@ -35,7 +35,8 @@ export class PieChartService {
   ];
 
   pieChartType = 'pie';
-  pieShowLegend = false;
+  pieShowLegend = true;
+
 
   constructor(private pesoService: PesoService) {
     this.pesoService.loadPiePeso();

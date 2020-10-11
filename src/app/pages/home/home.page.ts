@@ -8,8 +8,12 @@ import { Subscription } from 'rxjs';
 import { PieChartService } from 'src/app/services/pie-chart.service';
 
 interface Info {
-  data: any;
+  data?: any;
   kg: number;
+  massaGrassa?: number;
+  massaMuscolare?: number;
+  massaOssea ?: number;
+  massaIdrica?: number;
 }
 
 @Component({
@@ -62,14 +66,17 @@ export class HomePage implements OnInit, OnDestroy {
       this.infos = data.map(e => {
         return {
           data: e.payload.doc.data().data,
-          kg: e.payload.doc.data().kg
+          kg: e.payload.doc.data().kg,
+          massaGrassa: e.payload.doc.data().massaGrassa,
+          massaMuscolare: e.payload.doc.data().massaMuscolare,
+          massaOssea: e.payload.doc.data().massaOssea,
+          massaIdrica: e.payload.doc.data().massaIdrica
         };
       });
       this.infos.sort((a, b) => new Date(a.data) > new Date(b.data) ? 1 : -1);
       this.pcs.pieChartLabels = [];
       for (const info of this.infos) {
-        this.pcs.pieChartLabels.push(info.data);
-        this.pcs.pieChartData[0].data.push(info.kg);
+        this.pcs.pieChartData[0].data.push(info.kg, info.data);
       }
       console.log(this.infos);
     });
