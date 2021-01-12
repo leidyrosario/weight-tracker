@@ -27,36 +27,18 @@
     name="kg"
     class="ion-text-right"></ion-input>
   </ion-item>
-
   
-  <ion-item *ngIf="cfg.addParam">
-    <ion-label>Massa Grassa</ion-label>
+  <ion-item *ngFor="let item of cfg.selectedArray">
+    <ion-label>{{item.parametro}}</ion-label>
     <ion-input
     [ngModel]
-    name="massaGrassa"
+    [name]="item.parametro"
     class="ion-text-right"></ion-input>
   </ion-item>
-  <ion-item *ngIf="cfg.addParam">
-    <ion-label>Massa Muscolare</ion-label>
-    <ion-input
-    [ngModel]
-    name="massaMuscolare"
-    class="ion-text-right"></ion-input>
-  </ion-item>
-  <ion-item *ngIf="cfg.addParam">
-    <ion-label>Massa Ossea</ion-label>
-    <ion-input
-    [ngModel]
-    name="massaOssea"
-    class="ion-text-right"></ion-input>
-  </ion-item>
-  <ion-item *ngIf="cfg.addParam">
-    <ion-label>Massa Idrica</ion-label>
-    <ion-input
-    [ngModel]
-    name="massaIdrica"
-    class="ion-text-right"></ion-input>
-  </ion-item>
+  
+  
+  
+  
 
 </form>
 </ion-content>

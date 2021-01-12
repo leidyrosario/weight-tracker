@@ -1,24 +1,9 @@
+import { ConfigService } from './config.service';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
-
-interface Info {
-  data: any;
-  kg: number;
-  massaGrassa?: number;
-  massaMuscolare?: number;
-  massaOssea ?: number;
-  massaIdrica?: number;
-}
-
-export interface Peso {
-  data?: any;
-  kg?: number;
-  massaGrassa?: number;
-  massaMuscolare?: number;
-  massaOssea?: number;
-  massaIdrica?: number;
-}
+import { Info } from '../pages/model/info';
+import { Peso } from '../pages/model/peso';
 
 @Injectable({
   providedIn: 'root'
@@ -28,16 +13,18 @@ export class PesoService {
   infos: Info[] = [];
 
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore,
+              private cfg: ConfigService) {}
 
-   }
-
-
-
-   addPeso(form: NgForm) {
-    const {data, kg, massaGrassa, massaMuscolare, massaOssea, massaIdrica} = form.value;
+  addPeso(form: NgForm) {
+    const data = form.value.data;
+    const kg = form.value.kg;
+    const massaGrassa = form.value['Massa Grassa'];
+    const massaMuscolare = form.value['Massa Muscolare'];
+    const massaOssea = form.value['Massa Ossea'];
+    const massaIdrica = form.value['Massa Idrica'];
+    // const {data, kg, massaGrassa} = form.value;
     const formRequest = {data, kg, massaGrassa, massaMuscolare, massaOssea, massaIdrica};
-    console.log(form);
     this.infos.push(form.value as Info);
     this.afs.collection<Peso>('peso').add(formRequest);
  }

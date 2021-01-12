@@ -9,7 +9,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 })
 export class PieChartService {
   pieChartData: ChartDataSets[] = [{ data: [], label: 'Peso'}];
-  pieChartLabels: Label[] = [['kg'], ['Massa', 'Grassa'], ['Massa', 'Muscolare'], ['Massa', 'Ossea'], ['Massa', 'Idrica']];
+  pieChartLabels: Label[] = [];
   pieChartPlugins = [pluginDataLabels];
 
   // Options

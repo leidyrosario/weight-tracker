@@ -22,6 +22,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.checkDark();
     });
+  }
+
+  checkDark() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    console.log(prefersDark);
   }
 }

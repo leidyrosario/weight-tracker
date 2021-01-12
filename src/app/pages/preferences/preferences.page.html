@@ -22,12 +22,9 @@
   </ion-item>
   <ion-item>
     <ion-label>Add Parameters</ion-label>
-    <ion-select multiple="true" [(ngModel)]="cfg.addParam">
-    <ion-select-option value="massa grassa">Massa Grassa</ion-select-option>
-    <ion-select-option value="massa muscolare">Massa Muscolare</ion-select-option>
-    <ion-select-option value="massa ossea">Massa Ossea</ion-select-option>
-    <ion-select-option value="massa idrica">Massa Idrica</ion-select-option>
-  </ion-select>
+    <ion-select [(ngModel)]="cfg.selected" multiple="true" (ionChange)="cfg.addOption()">
+      <ion-select-option *ngFor="let item of cfg.list">{{item.parametro}}</ion-select-option>
+    </ion-select>
   </ion-item>
 
 </ion-content>

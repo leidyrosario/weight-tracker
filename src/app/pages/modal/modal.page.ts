@@ -3,15 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { ConfigService } from 'src/app/services/config.service';
-
-interface Info {
-  data: any;
-  kg: number;
-  massaGrassa?: number;
-  massaMuscolare?: number;
-  massaOssea ?: number;
-  massaIdrica?: number;
-}
+import { Info } from '../model/info';
 
 
 @Component({
@@ -29,29 +21,28 @@ export class ModalPage implements OnInit {
   constructor(
     private modalController: ModalController,
     private pesoService: PesoService,
-    public cfg: ConfigService) {}
+    public cfg: ConfigService,
+    ) {}
 
   ngOnInit() {
     this.pesoService.loadPeso().subscribe(data => {
       this.infos = data.map(e => {
         return {
           data: e.payload.doc.data().data,
-          kg: e.payload.doc.data().kg,
-          massaGrassa: e.payload.doc.data().massaGrassa,
-          massaMuscolare: e.payload.doc.data().massaMuscolare,
-          massaOssea: e.payload.doc.data().massaOssea,
-          massaIdrica: e.payload.doc.data().massaIdrica
+          kg: e.payload.doc.data().kg
         };
       });
     });
   }
 
   add(form: NgForm) {
+    console.log(form.value);
     this.infos.push(form.value as Info);
     this.pesoService.addPeso(form);
     this.modalController.dismiss({
     });
- }
+  }
+
 
   cambioData(event) {
   }
